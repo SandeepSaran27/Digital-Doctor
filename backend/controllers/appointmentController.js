@@ -58,11 +58,7 @@ const getQueue = async (req, res) => {
 // @route POST /api/appointments
 const bookAppointment = async (req, res) => {
     try {
-        // Accept both naming conventions (form sends `doctor`/`appointmentDate`, API may send `doctorId`/`date`)
-        const patientId = req.body.patientId || req.body.patient;
-        const doctorId = req.body.doctorId || req.body.doctor;
-        const date = req.body.date || req.body.appointmentDate;
-        const { timeSlot, type, chiefComplaint } = req.body;
+        const { patientId, doctorId, date, timeSlot, type, chiefComplaint } = req.body;
 
         const [patient, doctor] = await Promise.all([
             User.findById(patientId || req.user._id),
