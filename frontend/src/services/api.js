@@ -12,7 +12,7 @@ const api = axios.create({
 
 // Response: if 401 the cookie has expired/invalid — log the user out
 // Guard: never re-trigger on the logout or me endpoints to avoid circular loops
-api.interceptors.response.use(
+{/*api.interceptors.response.use(
     (response) => response,
     (error) => {
         const url = error.config?.url || '';
@@ -22,6 +22,6 @@ api.interceptors.response.use(
         }
         return Promise.reject(error);
     }
-);
+);*/}
 
 export default api;
