@@ -4,48 +4,58 @@ import { useNavigate, useSearchParams } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { bookAppointment } from '@/store/slices/appointmentSlice';
-import { fetchPatients } from '@/store/slices/patientSlice';
+//import { fetchPatients } from '@/store/slices/patientSlice';
 import api from '@/services/api';
 import { toast } from 'react-toastify';
+import useAuth from '@/hooks/useAuth.js';
 
 const BookAppointmentPage = () => {
+
+    const { user } = useAuth(); // ✅ INSIDE component
+
     const { t } = useTranslation();
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const [params] = useSearchParams();
-    const { list: patients } = useSelector((s) => s.patients);
+
     const [doctors, setDoctors] = useState([]);
     const loading = useSelector((s) => s.appointments.loading);
 
     const { register, handleSubmit, formState: { errors } } = useForm({
-        defaultValues: { patient: params.get('patient') || '' },
     });
 
     useEffect(() => {
-        dispatch(fetchPatients({ limit: 500 }));
+        //dispatch(fetchPatients({ limit: 500 }));
         api.get('/doctors').then(({ data }) => setDoctors(data.data || [])).catch(() => { });
     }, [dispatch]);
 
     const onSubmit = async (data) => {
-        // Map the form data to match the backend's expected req.body keys
+
+        if (!user?._id) {
+            toast.error("User not ready");
+            return;
+        }
+
         const payload = {
-            patientId: data.patient,
-            doctorId: data.doctor,
-            date: new Date(data.appointmentDate).toISOString(),
-            type: data.type,
-            chiefComplaint: data.chiefComplaint
+            ...data,
+            patient: user._id,
+            appointmentDate: new Date(
+                data.appointmentDate
+            ).toISOString(),
         };
 
         const result = await dispatch(bookAppointment(payload));
 
         if (bookAppointment.fulfilled.match(result)) {
-            toast.success('Appointment booked! Token #' + result.payload.tokenNumber);
+            toast.success(
+                'Appointment booked! Token #' +
+                result.payload.tokenNumber
+            );
             navigate('/appointments');
         } else {
-            toast.error(result.payload?.message || result.error?.message || 'Booking failed');
+            toast.error(result.payload || 'Booking failed');
         }
     };
-
     return (
         <div className="max-w-lg space-y-5 animate-fade-in">
             <h1 className="page-title">{t('appointments.book')}</h1>
@@ -56,16 +66,9 @@ const BookAppointmentPage = () => {
                         <label className="label">Doctor</label>
                         <select className="input" {...register('doctor', { required: true })}>
                             <option value="">-- Select Doctor --</option>
-                            {doctors.map((d) => {
-                                // This helper ensures we get the string ID regardless of format
-                                const doctorId = typeof d._id === 'object' ? d._id.$oid : d._id;
-
-                                return (
-                                    <option key={doctorId} value={doctorId}>
-                                        Dr. {d.name} — {d.specialization}
-                                    </option>
-                                );
-                            })}
+                            {doctors.map((d) => (
+                                <option key={d._id} value={d._id}>Dr. {d.name} — {d.specialization}</option>
+                            ))}
                         </select>
                     </div>
                     <div>
