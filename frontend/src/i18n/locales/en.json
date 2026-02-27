@@ -1,0 +1,109 @@
+{
+    "nav": {
+        "dashboard": "Dashboard",
+        "patients": "Patients",
+        "appointments": "Appointments",
+        "queue": "Queue Board",
+        "chatbot": "AI Chatbot",
+        "symptoms": "Symptom Check",
+        "emergency": "Emergency",
+        "prescriptions": "Prescriptions",
+        "analytics": "Analytics",
+        "admin": "Admin Panel",
+        "qrCheckin": "QR Check-in",
+        "calendar": "Doctor Calendar"
+    },
+    "auth": {
+        "login": "Sign In",
+        "register": "Register",
+        "logout": "Logout",
+        "email": "Email Address",
+        "password": "Password",
+        "name": "Full Name",
+        "phone": "Phone Number",
+        "role": "Role",
+        "forgotPassword": "Forgot Password?",
+        "noAccount": "Don't have an account?",
+        "haveAccount": "Already have an account?"
+    },
+    "dashboard": {
+        "welcome": "Welcome back",
+        "todaysQueue": "Today's Queue",
+        "totalPatients": "Total Patients",
+        "appointments": "Today's Appointments",
+        "pendingLabs": "Pending Lab Reports"
+    },
+    "patients": {
+        "title": "Patients",
+        "search": "Search by name or phone",
+        "addNew": "Add Patient",
+        "name": "Name",
+        "phone": "Phone",
+        "dob": "Date of Birth",
+        "gender": "Gender",
+        "bloodGroup": "Blood Group",
+        "address": "Address",
+        "allergies": "Allergies",
+        "history": "Medical History",
+        "visits": "Visit Timeline"
+    },
+    "appointments": {
+        "title": "Appointments",
+        "book": "Book Appointment",
+        "token": "Token #",
+        "doctor": "Doctor",
+        "date": "Date & Time",
+        "type": "Type",
+        "status": "Status",
+        "walkin": "Walk-in",
+        "online": "Online",
+        "waiting": "Waiting",
+        "inConsultation": "In Consultation",
+        "completed": "Completed",
+        "cancelled": "Cancelled"
+    },
+    "chatbot": {
+        "title": "AI Medical Assistant",
+        "placeholder": "Describe your symptoms or ask a health question...",
+        "send": "Send",
+        "listening": "Listening...",
+        "speak": "Speak",
+        "newSession": "New Chat",
+        "endSession": "End Session"
+    },
+    "symptoms": {
+        "title": "Symptom Checker",
+        "select": "Select your symptoms",
+        "analyze": "Analyze Symptoms",
+        "results": "Analysis Results",
+        "severity": "Severity",
+        "conditions": "Possible Conditions",
+        "emergency": "⚠️ Emergency! Please seek medical attention immediately."
+    },
+    "emergency": {
+        "title": "Emergency Alert",
+        "trigger": "Trigger Emergency",
+        "confirm": "Confirm Emergency",
+        "cancelLabel": "Cancel",
+        "logs": "Emergency Logs",
+        "resolved": "Resolved",
+        "active": "Active"
+    },
+    "common": {
+        "save": "Save",
+        "cancel": "Cancel",
+        "delete": "Delete",
+        "edit": "Edit",
+        "view": "View",
+        "download": "Download",
+        "upload": "Upload",
+        "search": "Search",
+        "filter": "Filter",
+        "loading": "Loading...",
+        "noData": "No data found",
+        "actions": "Actions",
+        "confirm": "Confirm",
+        "success": "Operation successful",
+        "error": "Something went wrong"
+    }
+}
