@@ -4,7 +4,7 @@ import { logoutUser } from '@/store/slices/authSlice';
 
 // All requests go to the backend with credentials (cookies) sent automatically
 const api = axios.create({
-    baseURL: 'http://localhost:5000/api',
+    baseURL: import.meta.env.VITE_API_BASE_URL || "http://localhost:5000/api",
     timeout: 30000,
     withCredentials: true, // ← send HTTP-only cookie on every request
     headers: { 'Content-Type': 'application/json' },
