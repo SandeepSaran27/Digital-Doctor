@@ -17,12 +17,20 @@ const sendTokenCookie = (user, statusCode, res) => {
         secure: process.env.NODE_ENV === 'production', // HTTPS only in production
         sameSite: 'none',
         maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days in ms
-    });*/
+    });
     res.cookie('token', token, {
     httpOnly: true,
     secure: true,              // MUST be true in production (HTTPS)
     sameSite: 'none',          // REQUIRED for cross-site cookies
     maxAge: 7 * 24 * 60 * 60 * 1000,
+});*/
+
+    res.cookie("token", token, {
+  httpOnly: true,
+  secure: true,          // REQUIRED for HTTPS
+  sameSite: "None",      // REQUIRED for Vercel → Render
+  maxAge: 7 * 24 * 60 * 60 * 1000, // ✅ 7 days
+  path: "/",
 });
     // Never send the raw token in the response body
     const userObj = user.toObject ? user.toObject() : { ...user };
@@ -78,8 +86,12 @@ const login = async (req, res) => {
 
 // @route POST /api/auth/logout
 const logout = (req, res) => {
-    res.clearCookie('token', { httpOnly: true, sameSite: 'lax' });
-    res.json({ success: true, message: 'Logged out successfully' });
+res.clearCookie("token", {
+  httpOnly: true,
+  secure: true,
+  sameSite: "None",
+  path: "/",
+});    res.json({ success: true, message: 'Logged out successfully' });
 };
 
 // @route GET /api/auth/me
