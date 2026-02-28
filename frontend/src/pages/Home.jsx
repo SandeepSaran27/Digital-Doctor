@@ -202,12 +202,7 @@ const Home = () => {
                         Book appointments, access records, and connect with doctors — all in one place.
                     </p>
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                        <Link
-                            to="/signup"
-                            className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-cyan-500 hover:bg-cyan-400 text-white font-semibold text-base transition-colors shadow-lg"
-                        >
-                            Get Started
-                        </Link>
+                    
                         <Link
                             to="/login"
                             className="w-full sm:w-auto px-8 py-3.5 rounded-full border border-white/30 hover:border-white/60 text-white font-medium text-base transition-colors backdrop-blur-sm"
