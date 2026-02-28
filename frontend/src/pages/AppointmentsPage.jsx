@@ -67,7 +67,7 @@ const { role, user } = useAuth();
   </p>
 
   <p className="text-xs text-slate-400">
-      {a.chiefComplaint || "-"}
+      Suffering From - {a.chiefComplaint || "-"}
   </p>
 </td>
                                 <td>{a.doctor?.name}</td>
