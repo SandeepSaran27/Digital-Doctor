@@ -15,10 +15,25 @@ const STATUS_CLASS = {
 const AppointmentsPage = () => {
     const { t } = useTranslation();
     const dispatch = useDispatch();
-    const { role } = useAuth();
+const { role, user } = useAuth();
     const { list, total, loading } = useSelector((s) => s.appointments);
 
     useEffect(() => { dispatch(fetchAppointments()); }, [dispatch]);
+    const filteredAppointments = list.filter((a) => {
+
+    // Doctor → only own queue
+    if (role === "doctor") {
+        return a.doctor?._id === user?._id;
+    }
+
+    // Patient → only own appointments
+    if (role === "patient") {
+        return a.patient?._id === user?._id;
+    }
+
+    // Admin / Receptionist → see all
+    return true;
+});
 
     return (
         <div className="space-y-5 animate-fade-in">
@@ -44,7 +59,7 @@ const AppointmentsPage = () => {
                         {loading && [...Array(6)].map((_, i) => (
                             <tr key={i}><td colSpan={7}><div className="h-8 shimmer rounded" /></td></tr>
                         ))}
-                        {!loading && list.map((a) => (
+                        {!loading && filteredAppointments.map((a) => (
                             <tr key={a._id}>
                                 <td className="font-bold text-primary-600 text-lg">#{a.tokenNumber}</td>
                                 <td>
@@ -77,7 +92,7 @@ const AppointmentsPage = () => {
                                 )}
                             </tr>
                         ))}
-                        {!loading && list.length === 0 && (
+                        {!loading && filteredAppointments.length === 0 && (
                             <tr><td colSpan={7} className="text-center text-slate-400 py-10">{t('common.noData')}</td></tr>
                         )}
                     </tbody>
