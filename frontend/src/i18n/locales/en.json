@@ -3,6 +3,7 @@
         "dashboard": "Dashboard",
         "patients": "Patients",
         "appointments": "Appointments",
+        "myHistory": "My History",
         "queue": "Queue Board",
         "chatbot": "AI Chatbot",
         "symptoms": "Symptom Check",
@@ -50,6 +51,7 @@
     "appointments": {
         "title": "Appointments",
         "book": "Book Appointment",
+        "bookAppointments": "Book Appointment",
         "token": "Token #",
         "doctor": "Doctor",
         "date": "Date & Time",
