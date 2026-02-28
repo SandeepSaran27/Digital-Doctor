@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+/*import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
 const Home = () => {
@@ -16,25 +16,20 @@ const Home = () => {
     return (
         <div className="relative min-h-screen bg-slate-950 text-slate-50 font-sans selection:bg-cyan-500/30 overflow-hidden">
 
-            {/* Background Effects */}
             <div className="fixed inset-0 z-0 pointer-events-none">
-                {/* Clinic Background Image */}
                 <div
                     className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-80"
                     style={{
                         backgroundImage: `url('https://images.unsplash.com/photo-1538108149393-cebb47ac8021?auto=format&fit=crop&q=80&w=2000')`
                     }}
                 />
-                {/* Dark Gradient Overlay for Contrast */}
                 <div className="absolute inset-0 bg-slate-950/60" />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/90 to-transparent" />
 
-                {/* Abstract Glowing Orbs */}
                 <div className="absolute top-[-10%] left-[-10%] w-[40vw] h-[40vw] rounded-full bg-indigo-600/20 blur-[120px] mix-blend-screen animate-[pulse_8s_ease-in-out_infinite]" />
                 <div className="absolute top-[20%] right-[-10%] w-[35vw] h-[35vw] rounded-full bg-cyan-500/20 blur-[100px] mix-blend-screen animate-[pulse_10s_ease-in-out_infinite_reverse]" />
                 <div className="absolute bottom-[-20%] left-[20%] w-[50vw] h-[50vw] rounded-full bg-purple-600/15 blur-[130px] mix-blend-screen animate-[pulse_12s_ease-in-out_infinite]" />
 
-                {/* Subtle Grid Pattern */}
                 <div
                     className="absolute inset-0 opacity-[0.15]"
                     style={{
@@ -44,7 +39,6 @@ const Home = () => {
                 />
             </div>
 
-            {/* Header / Navbar */}
             <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-slate-950/80 backdrop-blur-md border-b border-white/5 py-4' : 'bg-transparent py-6'}`}>
                 <div className="container mx-auto px-6 max-w-7xl flex items-center justify-between">
                     <div className="flex items-center gap-2 z-10">
@@ -67,11 +61,9 @@ const Home = () => {
                 </div>
             </header>
 
-            {/* Main Content */}
             <main className="relative z-10 pt-32 pb-20 lg:pt-48">
                 <div className="container mx-auto px-6 max-w-7xl">
 
-                    {/* Hero Section */}
                     <div className="text-center max-w-4xl mx-auto">
                         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-md text-sm text-cyan-300 mb-8 mx-auto shadow-[0_0_15px_rgba(34,211,238,0.15)]">
                             <span className="relative flex h-2.5 w-2.5">
@@ -106,7 +98,6 @@ const Home = () => {
                         </div>
                     </div>
 
-                    {/* Features section (simplified) */}
                     <div id="features" className="mt-32 border-t border-white/5 pt-20 grid grid-cols-1 md:grid-cols-3 gap-10">
                         <div className="bg-white/[0.02] border border-white/5 rounded-2xl p-8 hover:bg-white/[0.04] transition-colors relative overflow-hidden group text-left">
                             <div className="absolute top-0 right-0 w-32 h-32 bg-cyan-500/10 blur-2xl rounded-full group-hover:bg-cyan-500/20 transition-colors" />
@@ -145,12 +136,10 @@ const Home = () => {
                 </div>
             </main>
 
-            {/* Simple Footer */}
             <footer className="relative z-10 border-t border-white/5 py-10 bg-black/20 text-center mt-12">
                 <p className="text-slate-500 text-sm">&copy; {new Date().getFullYear()} Digital Doctor. All rights reserved. RMP Clinic Management System.</p>
             </footer>
 
-            {/* Inline styles for custom animations */}
             <style dangerouslySetInnerHTML={{
                 __html: `
                 @keyframes pulse_reverse {
@@ -158,6 +147,84 @@ const Home = () => {
                     50% { opacity: .7; transform: scale(1.05); }
                 }
             `}} />
+        </div>
+    );
+};
+
+export default Home;*/
+
+import { Link } from 'react-router-dom';
+
+const Home = () => {
+    return (
+        <div className="relative min-h-screen text-white font-sans overflow-hidden flex flex-col">
+
+            {/* Full-page Background Image */}
+            <div className="fixed inset-0 z-0">
+                <img
+                    src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=2000"
+                    alt="Digital healthcare background"
+                    className="w-full h-full object-cover object-center"
+                />
+                {/* Dark overlay */}
+                <div className="absolute inset-0 bg-black/60" />
+            </div>
+
+            {/* Header / Navbar — logo + auth buttons only */}
+            <header className="relative z-10 w-full px-8 py-5 flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                    <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-cyan-400 to-blue-600 flex items-center justify-center text-white font-bold text-lg shadow-lg">
+                        D
+                    </div>
+                    <span className="text-xl font-bold tracking-tight">
+                        Digital <span className="text-cyan-400">Doctor</span>
+                    </span>
+                </div>
+                <div className="flex items-center gap-4">
+                    <Link to="/login" className="text-sm font-medium text-white/80 hover:text-white transition-colors">
+                        Log in
+                    </Link>
+                    <Link to="/signup" className="text-sm font-semibold bg-cyan-500 hover:bg-cyan-400 text-white px-5 py-2.5 rounded-full transition-colors shadow-lg">
+                        Get Started
+                    </Link>
+                </div>
+            </header>
+
+            {/* Hero — centered */}
+            <main className="relative z-10 flex-1 flex items-center justify-center text-center px-6">
+                <div className="max-w-2xl">
+                    <p className="uppercase tracking-widest text-cyan-400 text-sm font-semibold mb-4">
+                        Clinic Management System
+                    </p>
+                    <h1 className="text-5xl md:text-6xl font-extrabold leading-tight mb-6">
+                        Your Health,<br />
+                        <span className="text-cyan-400">Digitally Managed</span>
+                    </h1>
+                    <p className="text-white/70 text-lg mb-10">
+                        Book appointments, access records, and connect with doctors — all in one place.
+                    </p>
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                        <Link
+                            to="/signup"
+                            className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-cyan-500 hover:bg-cyan-400 text-white font-semibold text-base transition-colors shadow-lg"
+                        >
+                            Get Started
+                        </Link>
+                        <Link
+                            to="/login"
+                            className="w-full sm:w-auto px-8 py-3.5 rounded-full border border-white/30 hover:border-white/60 text-white font-medium text-base transition-colors backdrop-blur-sm"
+                        >
+                            Log In
+                        </Link>
+                    </div>
+                </div>
+            </main>
+
+            {/* Footer */}
+            <footer className="relative z-10 text-center py-6 text-white/40 text-sm">
+                &copy; {new Date().getFullYear()} Digital Doctor. All rights reserved.
+            </footer>
+
         </div>
     );
 };
