@@ -87,17 +87,7 @@ const LoginPage = () => {
                     <Link to="/register" className="text-primary-600 font-semibold hover:underline">{t('auth.register')}</Link>
                 </p>
 
-                <div className="mt-6 p-3 rounded-xl bg-slate-50 dark:bg-slate-700/50 text-xs text-slate-500 space-y-1">
-                    <p className="font-semibold text-slate-600 dark:text-slate-300 mb-1">Demo Accounts</p>
-                    {[
-                        ['Admin', 'admin@digitaldoctor.com', 'Admin@1234'],
-                        ['Doctor', 'doctor@digitaldoctor.com', 'Doctor@1234'],
-                        ['Receptionist', 'receptionist@digitaldoctor.com', 'Recept@1234'],
-                        ['Patient', 'patient@digitaldoctor.com', 'Patient@1234'],
-                    ].map(([role, email, pw]) => (
-                        <p key={role}><span className="font-medium text-slate-600 dark:text-slate-400 w-20 inline-block">{role}:</span> {email} / {pw}</p>
-                    ))}
-                </div>
+            
             </div>
         </div>
     );
