@@ -50,7 +50,6 @@ const { role, user } = useAuth();
                         <th>{t('appointments.token')}</th>
                         <th>Patient</th>
                         <th>{t('appointments.doctor')}</th>
-                        <th>{t('appointments.date')}</th>
                         <th>{t('appointments.type')}</th>
                         <th>{t('appointments.status')}</th>
                         {(role === 'doctor' || role === 'admin') && <th>Actions</th>}
@@ -66,7 +65,6 @@ const { role, user } = useAuth();
                                     <p className="text-xs text-slate-400">{a.chiefComplaint?.slice(0, 30)}</p>
                                 </td>
                                 <td>{a.doctor?.name}</td>
-                                <td className="text-xs">{new Date(a.appointmentDate).toLocaleString('en-IN')}</td>
                                 <td><span className="badge badge-blue capitalize">{a.type}</span></td>
                                 <td><span className={`badge capitalize ${STATUS_CLASS[a.status] || 'badge-gray'}`}>{a.status}</span></td>
                                 {(role === 'doctor' || role === 'admin') && (
