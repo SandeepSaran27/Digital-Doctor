@@ -48,7 +48,7 @@ const { role, user } = useAuth();
                 <table className="table">
                     <thead><tr>
                         <th>{t('appointments.token')}</th>
-                        <th>Patient</th>
+                        <th>Patient Details </th>
                         <th>{t('appointments.doctor')}</th>
                         <th>{t('appointments.type')}</th>
                         <th>{t('appointments.status')}</th>
@@ -62,8 +62,14 @@ const { role, user } = useAuth();
                             <tr key={a._id}>
                                 <td className="font-bold text-primary-600 text-lg">#{a.tokenNumber}</td>
                                 <td>
-                                    <p className="text-xs text-slate-400">{a.chiefComplaint?.slice(0, 30)}</p>
-                                </td>
+  <p className="font-medium">
+      {a.patient?.name || "Unknown Patient"}
+  </p>
+
+  <p className="text-xs text-slate-400">
+      {a.chiefComplaint || "-"}
+  </p>
+</td>
                                 <td>{a.doctor?.name}</td>
                                 <td><span className="badge badge-blue capitalize">{a.type}</span></td>
                                 <td><span className={`badge capitalize ${STATUS_CLASS[a.status] || 'badge-gray'}`}>{a.status}</span></td>
