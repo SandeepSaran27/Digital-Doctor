@@ -352,12 +352,7 @@ const Topbar = ({ collapsed, onToggle }) => {
 
                 {showMenu && (
                     <div className="absolute right-0 top-full mt-2 w-44 card py-1 z-50 animate-fade-in">
-                        <button
-                            onClick={() => { setShowMenu(false); navigate('/profile'); }}
-                            className="w-full text-left px-4 py-2 text-sm text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700 rounded-lg"
-                        >
-                            👤 Profile
-                        </button>
+                    
                         <hr className="my-1 border-slate-100 dark:border-slate-700" />
                         <button
                             onClick={handleLogout}
