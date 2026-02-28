@@ -347,7 +347,20 @@ import useAuth from '@/hooks/useAuth';
 const navItems = [
     { to: '/dashboard', key: 'dashboard', icon: '🏠', roles: ['admin', 'doctor', 'receptionist', 'patient'] },
     { to: '/patients', key: 'patients', icon: '👥', roles: ['admin', 'doctor', 'receptionist'] },
-    { to: '/appointments/book', key: 'appointments', icon: '📅', roles: ['admin', 'doctor', 'receptionist', 'patient'] },
+  {
+    to: '/appointments',
+    key: 'appointments',
+    icon: '📅',
+    roles: ['admin','doctor','receptionist']
+  },
+
+  // ✅ Patient booking ONLY
+  {
+    to: '/appointments/book',
+    key: 'bookAppointments',
+    icon: '📝',
+    roles: ['patient']
+  },
     { to: '/queue', key: 'queue', icon: '🎫', roles: ['admin', 'doctor', 'receptionist', 'patient'] },
     { to: '/chatbot', key: 'chatbot', icon: '🤖', roles: ['admin', 'doctor', 'patient'] },
     { to: '/symptoms', key: 'symptoms', icon: '🩺', roles: ['admin', 'doctor', 'patient'] },
