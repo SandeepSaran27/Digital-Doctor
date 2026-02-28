@@ -1,4 +1,4 @@
-/*import { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
@@ -104,8 +104,8 @@ const LoginPage = () => {
 };
 
 export default LoginPage;
-*/
 
+/*
 import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
@@ -190,7 +190,6 @@ const LoginPage = () => {
 
     const onSubmit = (data) => dispatch(loginUser(data));
 
-    /* ── Role selection screen ── */
     if (!selectedRole) {
         return (
             <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900 p-4 font-sans">
@@ -200,7 +199,6 @@ const LoginPage = () => {
                 </div>
 
                 <div className="relative w-full max-w-sm">
-                    {/* Brand */}
                     <div className="text-center mb-10">
                         <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-cyan-400 to-blue-600 flex items-center justify-center mx-auto mb-4 shadow-lg shadow-cyan-500/20">
                             <svg className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -211,7 +209,6 @@ const LoginPage = () => {
                         <p className="text-slate-400 text-sm mt-1">Who are you logging in as?</p>
                     </div>
 
-                    {/* Role cards */}
                     <div className="flex flex-col gap-4">
                         {ROLES.map((r) => (
                             <button
@@ -247,7 +244,6 @@ const LoginPage = () => {
         );
     }
 
-    /* ── Login form screen (role selected) ── */
     return (
         <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900 p-4 font-sans">
             <div className="absolute inset-0 pointer-events-none overflow-hidden">
@@ -257,7 +253,6 @@ const LoginPage = () => {
 
             <div className="relative w-full max-w-md bg-slate-800/60 border border-slate-700/50 backdrop-blur-xl rounded-2xl shadow-2xl p-8">
 
-                {/* Back button */}
                 <button
                     type="button"
                     onClick={handleBack}
@@ -269,7 +264,6 @@ const LoginPage = () => {
                     Change role
                 </button>
 
-                {/* Selected role logo */}
                 <div className="text-center mb-7">
                     <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${selectedRole.color} flex items-center justify-center mx-auto mb-4 shadow-lg ${selectedRole.shadow}`}>
                         {selectedRole.icon}
@@ -278,7 +272,6 @@ const LoginPage = () => {
                     <p className="text-slate-400 text-sm mt-1">{selectedRole.subtitle}</p>
                 </div>
 
-                {/* Form */}
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
                     <div>
                         <label className="flex items-center gap-1.5 text-sm font-medium text-slate-300 mb-1.5">
@@ -340,3 +333,4 @@ const LoginPage = () => {
 };
 
 export default LoginPage;
+*/
