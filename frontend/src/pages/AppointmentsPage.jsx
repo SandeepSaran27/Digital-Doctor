@@ -63,7 +63,6 @@ const { role, user } = useAuth();
                             <tr key={a._id}>
                                 <td className="font-bold text-primary-600 text-lg">#{a.tokenNumber}</td>
                                 <td>
-                                    <p className="font-medium">{a.patient?.firstName} {a.patient?.lastName}</p>
                                     <p className="text-xs text-slate-400">{a.chiefComplaint?.slice(0, 30)}</p>
                                 </td>
                                 <td>{a.doctor?.name}</td>
