@@ -156,6 +156,8 @@ const getAppointments = async (req, res) => {
         if (status) query.status = status;
         // Patient can only see own appointments
         if (req.user.role === 'patient') query.patient = req.user._id;
+        // Doctor can only see own appointments
+        if (req.user.role === 'doctor') query.doctor = req.user._id;
 
         const [appointments, total] = await Promise.all([
             Appointment.find(query)
@@ -179,7 +181,10 @@ const getQueue = async (req, res) => {
         const start = new Date(d); start.setHours(0, 0, 0, 0);
         const end = new Date(d); end.setHours(23, 59, 59, 999);
         const query = { date: { $gte: start, $lte: end }, status: { $in: ['waiting', 'in-consultation'] } };
-        if (doctor) query.doctor = doctor;
+
+        if (req.user.role === 'patient') query.patient = req.user._id;
+        if (req.user.role === 'doctor') query.doctor = doctor || req.user._id;
+        else if (doctor) query.doctor = doctor;
 
         const queue = await Appointment.find(query)
             .populate('patient', 'name phone patientId')
