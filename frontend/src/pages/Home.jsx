@@ -184,9 +184,7 @@ const Home = () => {
                     <Link to="/login" className="text-sm font-medium text-white/80 hover:text-white transition-colors">
                         Log in
                     </Link>
-                    <Link to="/signup" className="text-sm font-semibold bg-cyan-500 hover:bg-cyan-400 text-white px-5 py-2.5 rounded-full transition-colors shadow-lg">
-                        Get Started
-                    </Link>
+                    
                 </div>
             </header>
 
