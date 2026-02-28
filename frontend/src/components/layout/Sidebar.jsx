@@ -340,7 +340,6 @@ const Sidebar = ({ collapsed, isMobile, onClose }) => {
 
 export default Sidebar;
 */
-
 import { NavLink, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import useAuth from '@/hooks/useAuth';
@@ -348,16 +347,14 @@ import useAuth from '@/hooks/useAuth';
 const navItems = [
     { to: '/dashboard', key: 'dashboard', icon: '🏠', roles: ['admin', 'doctor', 'receptionist', 'patient'] },
     { to: '/patients', key: 'patients', icon: '👥', roles: ['admin', 'doctor', 'receptionist'] },
-    { to: '/appointments', key: 'appointments', icon: '📅', roles: ['admin', 'doctor', 'receptionist'] },
-    { to: '/appointments/book', key: 'bookAppointments', icon: '📅', roles: ['patient'] },
-    { to: '/patients/me', key: 'myHistory', icon: '📝', roles: ['patient'] },
-    { to: '/queue', key: 'queue', icon: '🎫', roles: ['admin', 'doctor', 'receptionist'] },
+    { to: '/appointments/book', key: 'appointments', icon: '📅', roles: ['admin', 'doctor', 'receptionist', 'patient'] },
+    { to: '/queue', key: 'queue', icon: '🎫', roles: ['admin', 'doctor', 'receptionist', 'patient'] },
     { to: '/chatbot', key: 'chatbot', icon: '🤖', roles: ['admin', 'doctor', 'patient'] },
-    { to: '/symptoms', key: 'symptoms', icon: '🩺', roles: ['admin', 'patient'] },
+    { to: '/symptoms', key: 'symptoms', icon: '🩺', roles: ['admin', 'doctor', 'patient'] },
     { to: '/emergency', key: 'emergency', icon: '🚨', roles: ['admin', 'doctor', 'receptionist'] },
     { to: '/analytics', key: 'analytics', icon: '📊', roles: ['admin', 'doctor'] },
     { to: '/qr-checkin', key: 'qrCheckin', icon: '📷', roles: ['admin', 'receptionist'] },
-    { to: '/doctor/calendar', key: 'calendar', icon: '🗓️', roles: ['admin'] },
+    { to: '/doctor/calendar', key: 'calendar', icon: '🗓️', roles: ['admin', 'doctor'] },
     { to: '/admin', key: 'admin', icon: '⚙️', roles: ['admin'] },
 ];
 
